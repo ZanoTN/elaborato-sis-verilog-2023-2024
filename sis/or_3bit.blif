@@ -1,0 +1,12 @@
+.model OR3
+.inputs A B C
+.outputs OUT
+
+// TODO: Da testare
+
+.subckt or A=A B=B OUT=TMP
+.subckt or A=C B=TMP OUT=OUT
+
+.search or.blif
+.end
+

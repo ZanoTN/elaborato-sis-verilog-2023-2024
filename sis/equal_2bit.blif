@@ -1,0 +1,12 @@
+.model EQUAL2
+.inputs A1 A0 B1 B0
+.outputs OUT
+
+.subckt xnor A=A1 B=B1 OUT=TMP1
+.subckt xnor A=A0 B=B0 OUT=TMP0
+
+.names TMP1 TMP0 OUT
+11 1
+
+.search xnor.blif
+.end
