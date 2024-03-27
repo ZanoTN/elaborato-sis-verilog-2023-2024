@@ -1,0 +1,65 @@
+.model DATAPATH
+.inputs SETUP
+
+# Aggiornamento registri:
+
+#Reg counter of tourn
+.subckt MUX5_1 S=SETUP A4=TEMP_NEW_TURN_COUNT_4 
+											 A3=TEMP_NEW_TURN_COUNT_3 
+											 A2=TEMP_NEW_TURN_COUNT_2 
+											 A1=TEMP_NEW_TURN_COUNT_1 
+											 A0=TEMP_NEW_TURN_COUNT_0 
+											 B4=0
+											 B3=0
+											 B2=0
+											 B1=0
+											 B0=0
+											 Y4=NEW_TURN_COUNT_4
+											 Y3=NEW_TURN_COUNT_3
+											 Y2=NEW_TURN_COUNT_2
+											 Y1=NEW_TURN_COUNT_1
+											 Y0=NEW_TURN_COUNT_0
+
+.subckt REG5 A4=NEW_TURN_COUNT_4 
+						 A3=NEW_TURN_COUNT_3 
+						 A2=NEW_TURN_COUNT_2 
+						 A1=NEW_TURN_COUNT_1 
+						 A0=NEW_TURN_COUNT_0 
+	
+
+# Reg "Mossa precedente"
+.subckt MUX3_1 S=SETUP A2=TEMP_NEW_MOSSA_PREC_2 
+                       A1=TEMP_NEW_MOSSA_PREC_1 
+											 A0=TEMP_NEW_MOSSA_PREC_0 
+											 B2=0 
+											 B1=0 
+											 B0=0 
+											 Y2=NEW_MOSSA_PREC_2
+											 Y1=NEW_MOSSA_PREC_1
+											 Y0=NEW_MOSSA_PREC_0
+
+.subckt REG3 A2=NEW_MOSSA_PREC_2 
+						 A1=NEW_MOSSA_PREC_1 
+						 A0=NEW_MOSSA_PREC_0
+
+# Reg points
+.subckt MUX4_1 S=SETUP A3=TEMP_NEW_POINTS_3 
+											 A2=TEMP_NEW_POINTS_2 
+											 A1=TEMP_NEW_POINTS_1 
+											 A0=TEMP_NEW_POINTS_0 
+											 B3=0
+											 B2=0
+											 B1=0
+											 B0=0
+											 Y3=NEW_POINTS_3
+											 Y2=NEW_POINTS_2
+											 Y1=NEW_POINTS_1
+											 Y0=NEW_POINTS_0
+
+.subckt REG4 A3=NEW_POINTS_3
+						 A2=NEW_POINTS_2
+						 A1=NEW_POINTS_1
+						 A0=NEW_POINTS_0
+
+
+

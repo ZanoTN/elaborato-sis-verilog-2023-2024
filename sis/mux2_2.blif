@@ -1,0 +1,10 @@
+.model MUX2_2
+.inputs S1 S0 A1 A0 B1 B0 C1 C0 D1 D0
+.outputs OUT1 OUT0
+
+.subckt S1=S1 S0=S0 i3=A1 i2=B1 i1=C1 i0=D1 out=OUT1
+.subckt S1=S1 S0=S0 i3=A0 i2=B0 i1=C0 i0=D0 out=OUT0
+
+.search MUX2_1.blif
+
+.end

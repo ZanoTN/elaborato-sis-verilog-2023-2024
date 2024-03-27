@@ -34,7 +34,7 @@ module tb();
     INIZIA = 1'b1;
    	PRIMO <= 2'b00;
     SECONDO <= 2'b10;
-	#20
+	  #20
     $display("> Resetto i registri -> imposto poi INIZIA a 0\n");
     
     INIZIA = 1'b0;

@@ -1,0 +1,7 @@
+.model CONST_1111
+.outputs O3 O2 O1 O0
+
+.names O3 O2 O1 O0
+1111
+
+.end

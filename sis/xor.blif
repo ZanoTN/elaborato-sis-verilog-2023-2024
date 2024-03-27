@@ -1,0 +1,9 @@
+.model XOR
+.inputs A B
+.outputs OUT
+
+.names A B OUT
+11 0
+00 1
+
+.end
