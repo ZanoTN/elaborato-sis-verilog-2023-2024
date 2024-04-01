@@ -1,4 +1,4 @@
-.model or
+.model OR
 .inputs A B
 .outputs OUT
 
