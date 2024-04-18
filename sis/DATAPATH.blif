@@ -1,6 +1,6 @@
 .model DATAPATH
 .inputs SETUP G1_1 G1_0 G2_1 G2_0
-.outputs # TODO: Da vedere
+.outputs END_PARTITA_1 END_PARTITA_0 END_MANCHE_1 END_MANCHE_0
 
 # -------- Aggiornamento registri:
 
@@ -25,7 +25,12 @@
 						 A3=NEW_TURN_COUNT_3 
 						 A2=NEW_TURN_COUNT_2 
 						 A1=NEW_TURN_COUNT_1 
-						 A0=NEW_TURN_COUNT_0 
+						 A0=NEW_TURN_COUNT_0
+						 O4=TURN_COUNT_4
+						 O3=TURN_COUNT_3
+						 O2=TURN_COUNT_2
+						 O1=TURN_COUNT_1
+						 O0=TURN_COUNT_0
 	
 
 # Reg "Mossa precedente"
@@ -64,6 +69,10 @@
 						 A2=NEW_POINTS_2
 						 A1=NEW_POINTS_1
 						 A0=NEW_POINTS_0
+						 O3=POINTS_3
+						 O2=POINTS_2
+						 O1=POINTS_1
+						 O0=POINTS_0
 
 # Reg primi quattro turni
 .subckt MUX2_1 S=SETUP A1=TEMP_NEW_PRIMI_1 
@@ -93,7 +102,7 @@
 
 # Inserimento turni nel registro
 
-.subckt SUM5 A4=
+.subckt SUM5 A4=0
 						 A3=G1_1
 						 A2=G1_0
 						 A1=G2_1
@@ -248,7 +257,7 @@
 
 # Aggiorno registro di mossa non valida
 
-.subckt MUX2_1 	S=VITTOIRA
+.subckt MUX2_1 	S=VITTORIA_G2
 								A1=G1_1
 								A0=G1_0
 								B1=G2_1
@@ -257,8 +266,218 @@
 								Y0=TEMP_NEW_MOSSA_PREC_0
 
 # TODO: Come si fa?
-TEMP_NEW_MOSSA_PREC_2 = VITTOIRA
+TEMP_NEW_MOSSA_PREC_2 = VITTORIA_G2
+
+# Vediamo se un giocatore ha vinto
+# Giocatore 1
+.subckt DECODER2 S1=G1_1
+									S0=G1_0
+									O0=G1_MOSSA_NULLA
+									O1=G1_MOSSA_SASSO
+									O2=G1_MOSSA_CARTA
+									O3=G1_MOSSA_FORBICE
+
+# Giocatore 2
+.subckt DECODER2 S1=G2_1
+									S0=G2_0
+									O0=G2_MOSSA_NULLA
+									O1=G2_MOSSA_SASSO
+									O2=G2_MOSSA_CARTA
+									O3=G2_MOSSA_FORBICE
+
+# Vittoria giocatore 2?
+.subckt AND A=G1_MOSSA_SASSO
+						B=G2_MOSSA_CARTA
+						OUT=VITTORIA_G2_CARTA
+
+.subckt AND A=G1_MOSSA_CARTA
+						B=G2_MOSSA_FORBICE
+						OUT=VITTORIA_G2_FORBICE
+
+.subckt AND A=G1_MOSSA_FORBICE
+						B=G2_MOSSA_SASSO
+						OUT=VITTORIA_G2_SASSO
+
+.subckt OR3 A=VITTORIA_G2_FORBICE
+						B=VITTORIA_G2_SASSO
+						C=VITTORIA_G2_CARTA
+						OUT=VITTORIA_G2
+			
+
+# Controllo pareggio
+.subckt EQUAL2 A1=G1_1
+								A0=G1_0
+								B1=G2_1
+								B0=G2_0
+								OUT=PARITA
+
+# Conteggio punti:
+
+# Nuovo volore punti se vinvita
+.subckt MUX4_1 S=VITTORIA_G2
+								A3=1
+								A2=1
+								A1=1
+								A0=1
+								B3=0
+								B2=0
+								B1=0
+								B0=1
+								Y3=VALUE_TO_ADD_3
+								Y2=VALUE_TO_ADD_2
+								Y1=VALUE_TO_ADD_1
+								Y0=VALUE_TO_ADD_0
+
+.subckt SUM4 A3=POINTS_3
+						A2=POINTS_2
+						A1=POINTS_1
+						A0=POINTS_0
+						B3=VALUE_TO_ADD_3
+						B2=VALUE_TO_ADD_2
+						B1=VALUE_TO_ADD_1
+						B0=VALUE_TO_ADD_0
+						OUT3=AFTER_SUM_POINTS_3
+						OUT2=AFTER_SUM_POINTS_2
+						OUT1=AFTER_SUM_POINTS_1
+						OUT0=AFTER_SUM_POINTS_0
+
+# MUX se pareggiata
+.subckt MUX4_1 S=PARITA
+								A3=POINTS_3
+								A2=POINTS_2
+								A1=POINTS_1
+								A0=POINTS_0
+								B3=AFTER_SUM_POINTS_3
+								B2=AFTER_SUM_POINTS_2
+								B1=AFTER_SUM_POINTS_1
+								B0=AFTER_SUM_POINTS_0
+								Y3=TEMP_NEW_POINTS_3
+								Y2=TEMP_NEW_POINTS_2
+								Y1=TEMP_NEW_POINTS_1
+								Y0=TEMP_NEW_POINTS_0
+
+# Vincita manche
+
+.subckt NOT A=VITTORIA_G2
+						OUT=VITTORIA_G1
+
+.subckt MUX2_2 S1=MOSSA_NON_VALIDA_O_PREC_NON_VALIDA
+								S0=PARITA
+								A1=VITTORIA_G2
+								A0=VITTORIA_G1
+								B1=1
+								B0=1
+								C1=0
+								C0=0
+								D1=0
+								D0=0
+								OUT1=END_MANCHE_1
+								OUT0=END_MANCHE_0
+
+# Vediamo se sono finiti i turni
+
+.subckt EQUAL5 A4=TURN_COUNT_4
+							A3=TURN_COUNT_3
+							A2=TURN_COUNT_2
+							A1=TURN_COUNT_1
+							A0=TURN_COUNT_0
+							B4=0
+							B3=0
+							B2=0
+							B1=0
+							B0=0
+							OUT=TURNS_ENDED
+
+# Verifichiamo chi dei due è in vantaggio
+
+# Giocatore 1
+.subckt EQUAL4 A3=POINTS_3
+								A2=POINTS_2
+								A1=POINTS_1
+								A0=POINTS_0
+								B3=0
+								B2=0
+								B1=0
+								B0=1
+								OUT=VANTAGGIO_GIOCATORE_1
+
+# Giocatore 2
+.subckt EQUAL4 A3=POINTS_3
+								A2=POINTS_2
+								A1=POINTS_1
+								A0=POINTS_0
+								B3=1
+								B2=1
+								B1=1
+								B0=1
+								OUT=VANTAGGIO_GIOCATORE_2
+
+# Controllo se giocatore 1 ha vinto
+.subckt LE4BIT A3=POINTS_3
+							A2=POINTS_2
+							A1=POINTS_1
+							A0=POINTS_0
+							B3=1
+							B2=1
+							B1=1
+							B0=0
+							AleB=VITTORIA_PARTITA_G2
+
+.subckt GE4BIT A3=POINTS_3
+							A2=POINTS_2
+							A1=POINTS_1
+							A0=POINTS_0
+							B3=0
+							B2=0
+							B1=1
+							B0=0
+							AgeB=VITTORIA_PARTITA_G1
+
+# MUX per la vittoria partita
+
+# Distacco moggiore o uguale a 1
+
+.subckt MUX2_2 S1=VANTAGGIO_GIOCATORE_1
+								S0=VANTAGGIO_GIOCATORE_2
+								A1=1
+								A0=1
+								B1=0
+								B0=1
+								C1=1
+								C0=0
+								D1=0
+								D0=0
+								OUT1=VANTAGGIO_1
+								OUT0=VANTAGGIO_0
 
 
+# Turni finiti
+
+.subckt MUX2_1 S1=TURNS_ENDED
+								A1=0
+								A0=0
+								B1=VANTAGGIO_1
+								B0=VANTAGGIO_0
+								OUT1=TURNI_FINITI_1
+								OUT0=TURNI_FINITI_0
+
+# Distacco moggiore o uguale a 1
+
+.subckt MUX2_2 S1=VITTORIA_PARTITA_G2
+								S0=VITTORIA_PARTITA_G1
+								A1=TURNI_FINITI_1
+								A0=TURNI_FINITI_0
+								B1=0
+								B0=1
+								C1=1
+								C0=0
+								D1=0
+								D0=0
+								OUT1=VITTORIA_PARTITA_1
+								OUT0=VITTORIA_PARTITA_0
+
+# Partita può finire
+
+.subckt MUX2_1 S=END_PRIMI_4_TURNI A1=0 A0=0 B1=VITTORIA_PARTITA_1 B0=VITTORIA_PARTITA_0 OUT1=END_PARTITA_1 OUT0=END_PARTITA_0
 
 
