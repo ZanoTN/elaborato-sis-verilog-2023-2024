@@ -1,6 +1,4 @@
-// TODO: Verificare se serve veramente
-
-.model and
+.model AND
 .inputs A B
 .outputs OUT
 

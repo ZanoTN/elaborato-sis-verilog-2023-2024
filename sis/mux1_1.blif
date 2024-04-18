@@ -1,6 +1,7 @@
 .model MUX1_1
 .inputs S i1 i0 
 .outputs out
+
 .names S i1 i0 out
 01- 1
 1-1 1

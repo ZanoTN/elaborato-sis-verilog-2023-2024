@@ -12,5 +12,5 @@
 # unita' di elaborazione
 .subckt DATAPATH SETUP=SETUP G1_1=PRIMO_1 G1_0=PRIMO_0 G2_1=SECONDO_1 G2_0=SECONDO_0 END_PARTITA_1=PARITA_1 END_PARTITA_0=PARITA_0 END_MANCHE_1=MANCHE_1 END_MANCHE_0=MANCHE_0
 .end
-.search controllo.blif
-.search elaborazione.blif
+.search FSM.blif
+.search DATAPATH.blif

@@ -1,4 +1,4 @@
-.model sum
+.model SUM
 .inputs A B CIN
 .outputs OUT COUT
 

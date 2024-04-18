@@ -1,6 +1,6 @@
-.model not
+.model NOT
 .inputs A
-.output OUT
+.outputs OUT
 
 .names A OUT
 1 0

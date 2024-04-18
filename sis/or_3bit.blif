@@ -4,8 +4,8 @@
 
 # TODO: Da testare
 
-.subckt or A=A B=B OUT=TMP
-.subckt or A=C B=TMP OUT=OUT
+.subckt OR A=A B=B OUT=TMP
+.subckt OR A=C B=TMP OUT=OUT
 
 .search or.blif
 .end

@@ -2,10 +2,16 @@
 .inputs S1 S0
 .outputs O3 O2 O1 O0
 
-.names S1 S0 O3 O2 O1 O0
-00 0001
-01 0010
-10 0100
-11 1000
+.names S1 S0 O0
+00 1
+
+.names S1 S0 O1
+01 1
+
+.names S1 S0 O2
+10 1
+
+.names S1 S0 O3
+11 1
 
 .end

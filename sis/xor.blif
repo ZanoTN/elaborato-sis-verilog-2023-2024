@@ -3,7 +3,6 @@
 .outputs OUT
 
 .names A B OUT
-11 0
-00 1
-
+10 1
+01 1
 .end
