@@ -8,7 +8,7 @@
 .subckt SUM A=A1 B=B1 CIN=COUT0 OUT=OUT1 COUT=COUT1
 .subckt SUM A=A2 B=B2 CIN=COUT1 OUT=OUT2 COUT=COUT2
 .subckt SUM A=A3 B=B3 CIN=COUT2 OUT=OUT3 COUT=COUT3
-.subckt SUM A=A4 B=B4 CIN=COUT3 OUT=OUT4 COUT=0 # TODO: Check how ingnore the output
+.subckt SUM A=A4 B=B4 CIN=COUT3 OUT=OUT4 COUT=COUT4
 
 .search sum.blif
 .end
