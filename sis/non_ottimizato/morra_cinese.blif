@@ -1,0 +1,16 @@
+#-------------------------------------------------------------------------
+#   Anna ha mal di schiena 
+#   
+#-------------------------------------------------------------------------
+.model FSMD
+.inputs PRIMO_1 PRIMO_0 SECONDO_1 SECONDO_0 INIZIA
+.outputs MANCHE_1 MANCHE_0 PARITA_1 PARITA_0
+
+# unita' di controllo
+.subckt FSM INIZIA=INIZIA END=FINE SETUP=SETUP
+
+# unita' di elaborazione
+.subckt DATAPATH SETUP=SETUP G1_1=PRIMO_1 G1_0=PRIMO_0 G2_1=SECONDO_1 G2_0=SECONDO_0 PARTITA_1=PARITA_1 PARTITA_0=PARITA_0 MANCHE_1=MANCHE_1 MANCHE_0=MANCHE_0
+.end
+.search FSM.blif
+.search DATAPATH.blif
