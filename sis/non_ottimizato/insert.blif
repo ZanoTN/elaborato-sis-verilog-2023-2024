@@ -1,8 +1,8 @@
 .model INSERT
-.inputs in
-.outputs out
+.inputs IN
+.outputs OUT
 
-.names in out
+.names IN OUT
 1 1
 
 .end

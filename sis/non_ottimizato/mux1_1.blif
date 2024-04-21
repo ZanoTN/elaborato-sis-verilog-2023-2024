@@ -1,8 +1,9 @@
 .model MUX1_1
-.inputs S i1 i0 
-.outputs out
+.inputs S A B
+.outputs OUT
 
-.names S i1 i0 out
+.exdc
+.names S A B OUT
 01- 1
 1-1 1
 

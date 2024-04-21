@@ -1,6 +1,6 @@
 .model FSM
 .inputs INIZIA END
-.outputs SETUP
+.outputs SETUP_CABLE
 
 .start_kiss
 .i 2					# numero di segnali di ingresso

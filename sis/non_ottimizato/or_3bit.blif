@@ -2,8 +2,6 @@
 .inputs A B C
 .outputs OUT
 
-# TODO: Da testare
-
 .subckt OR A=A B=B OUT=TMP
 .subckt OR A=C B=TMP OUT=OUT
 
