@@ -2,7 +2,6 @@
 .inputs S A B
 .outputs OUT
 
-.exdc
 .names S A B OUT
 01- 1
 1-1 1

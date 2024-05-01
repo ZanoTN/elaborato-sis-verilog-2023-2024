@@ -2,7 +2,6 @@
 .inputs S1 S0 A1 A0 B1 B0 C1 C0 D1 D0
 .outputs OUT1 OUT0
 
-.exdc
 .names S1 S0 A1 B1 C1 D1 OUT1
 001--- 1
 01-1-- 1

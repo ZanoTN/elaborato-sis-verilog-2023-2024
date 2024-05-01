@@ -1,7 +1,7 @@
 read_blif morra_cinese.blif
-sim 0 1 0 1 1
+sim 0 0 0 1 1
 sim 0 1 1 0 0 # Vince 2 -  10 00
-sim 1 1 1 0 0 # Vince 1 -  01 00
+sim 0 1 1 1 0 # Vince 1 -  01 00
 sim 1 0 0 1 0 # Vince 1 -  01 00
 sim 0 1 1 1 0 # Vince 1 -  01 00
 sim 1 0 0 0 0 # Mossa non valida

@@ -2,8 +2,6 @@
 .inputs S1 S0 A B C D 
 .outputs OUT
 
-.exdc
-
 .names S1 S0 A B C D OUT
 001--- 1
 01-1-- 1

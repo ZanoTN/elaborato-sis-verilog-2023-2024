@@ -5,6 +5,6 @@
 .subckt MUX1_1 S=S A=A1 B=B1 OUT=OUT1
 .subckt MUX1_1 S=S A=A0 B=B0 OUT=OUT0
 
-.search mux1_1.blif
+# .search mux1_1.blif
 
 .end

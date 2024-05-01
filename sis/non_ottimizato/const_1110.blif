@@ -1,7 +1,0 @@
-.model CONST_1110
-.outputs O3 O2 O1 O0
-
-.names O3 O2 O1 O0
-1110
-
-.end
