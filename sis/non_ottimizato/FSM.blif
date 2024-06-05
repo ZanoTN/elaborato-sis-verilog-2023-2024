@@ -10,13 +10,13 @@
 .r RESET			# stato di reset
 
 # Tabella delle transizioni
-0- RESET RESET 0
+0- RESET RESET 1
 1- RESET SETUP 1
 1- SETUP SETUP 1
 0- SETUP GAME 0
 00 GAME GAME 0
 1- GAME SETUP 1
-01 GAME RESET 0
+01 GAME RESET 1
 
 .end_kiss
 
