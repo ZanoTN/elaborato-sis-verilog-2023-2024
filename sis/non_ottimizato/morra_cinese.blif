@@ -4,7 +4,7 @@
 #   
 #-------------------------------------------------------------------------
 .model MORRA_CINESE
-.inputs PRIMO_1 PRIMO_0 SECONDO_1 SECONDO_0 INIZIA
+.inputs INIZIA PRIMO_1 PRIMO_0 SECONDO_1 SECONDO_0 
 .outputs MANCHE_1 MANCHE_0 PARITA_1 PARITA_0 BITDEBUG
 
 # unita' di elaborazione
