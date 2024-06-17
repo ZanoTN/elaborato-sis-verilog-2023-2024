@@ -148,7 +148,6 @@
 .subckt INSERT IN=TURN_ENDED_AND_MOSSA_VALIDA OUT=BITDEBUG
 .search insert.blif
 
-
 # Import registers 
 .search and.blif
 .search const_false.blif
@@ -156,7 +155,6 @@
 .search decoder2.blif
 .search equal_5bit.blif
 .search ge_4bit.blif
-.search le_4.blif
 .search mux2_1.blif
 .search mux2_2.blif
 .search mux3_1.blif
