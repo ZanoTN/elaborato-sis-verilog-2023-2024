@@ -1,16 +1,16 @@
 read_blif morra_cinese.blif
 
 # Test 1: Configurazione iniziale (6 manche massime)
-# sim 1 0 0 1 0     # SETUP
-# sim 0 0 1 0 1     # SASSO vs SASSO        Match: 0 - 0      Punteggio: 0 - 0 
-# sim 0 1 1 1 0     # FORBICE vs CARTA      Match: 1 - 0      Punteggio: 1 - 0
-# sim 0 0 1 1 0     # SASSO vs CARTA        Match: 0 - 1      Punteggio: 1 - 1
-# sim 0 1 1 0 1     # FORBICE vs SASSO      Match: 0 - 1      Punteggio: 1 - 2
-# sim 0 0 0 0 0     # NULL vs NULL          Match: 0 - 0      Punteggio: 1 - 2
-# sim 0 0 1 0 1     # FORBICE vs CARTA      Match: 1 - 0      Punteggio: 2 - 2
-# sim 0 0 1 1 0     # FORBICE vs CARTA      Match: 1 - 0      Punteggio: 2 - 2
-# sim 0 1 0 0 1     # CARTA vs SASSO        Match: 1 - 0      Punteggio: 3 - 2
-# 
+sim 1 0 0 1 0     # SETUP
+sim 0 0 1 0 1     # SASSO vs SASSO        Match: 0 - 0      Punteggio: 0 - 0 
+sim 0 1 1 1 0     # FORBICE vs CARTA      Match: 1 - 0      Punteggio: 1 - 0
+sim 0 0 1 1 0     # SASSO vs CARTA        Match: 0 - 1      Punteggio: 1 - 1
+sim 0 1 1 0 1     # FORBICE vs SASSO      Match: 0 - 1      Punteggio: 1 - 2
+sim 0 0 0 0 0     # NULL vs NULL          Match: 0 - 0      Punteggio: 1 - 2
+sim 0 0 1 0 1     # FORBICE vs CARTA      Match: 1 - 0      Punteggio: 2 - 2
+sim 0 0 1 1 0     # FORBICE vs CARTA      Match: 1 - 0      Punteggio: 2 - 2
+sim 0 1 0 0 1     # CARTA vs SASSO        Match: 1 - 0      Punteggio: 3 - 2
+
 # # Divisore
 # sim 1 0 0 0 0     
 # sim 1 0 0 0 0     
@@ -18,13 +18,13 @@ read_blif morra_cinese.blif
 
 
 # Test 2: Configurazione iniziale (5 manche massime)
-sim 1 0 0 0 1     # SETUP
-sim 0 1 1 0 1     # FORBICE vs SASSO      Match: 0 - 1      Punteggio: 0 - 1 
-sim 0 1 0 0 1     # CARTA vs SASSO        Match: 0 - 0      Punteggio: 0 - 1
-sim 0 1 1 0 1     # FORBICE vs SASSO      Match: 0 - 1      Punteggio: 2 - 2
-sim 0 0 1 0 1     # SASSO vs SASSO        Match: 0 - 0      Punteggio: 0 - 2
-sim 0 1 1 0 1     # FORBICE vs SASSO      Match: 0 - 1      Punteggio: 0 - 3
-sim 0 1 1 0 1     # FORBICE vs SASSO      Match: 0 - 0      Punteggio: 0 - 3
+# sim 1 0 0 0 1     # SETUP
+# sim 0 1 1 0 1     # FORBICE vs SASSO      Match: 0 - 1      Punteggio: 0 - 1 
+# sim 0 1 0 0 1     # CARTA vs SASSO        Match: 0 - 0      Punteggio: 0 - 1
+# sim 0 1 1 0 1     # FORBICE vs SASSO      Match: 0 - 1      Punteggio: 2 - 2
+# sim 0 0 1 0 1     # SASSO vs SASSO        Match: 0 - 0      Punteggio: 0 - 2
+# sim 0 1 1 0 1     # FORBICE vs SASSO      Match: 0 - 1      Punteggio: 0 - 3
+# sim 0 1 1 0 1     # FORBICE vs SASSO      Match: 0 - 0      Punteggio: 0 - 3
 
 # # Divisore
 # sim 1 0 0 0 0     
