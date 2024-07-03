@@ -21,82 +21,61 @@ module tb();
     $dumpvars(1);
     tbf = $fopen("testbench.script", "w");
     outf = $fopen("output_verilog.txt", "w");
-    $fdisplay(tbf, "read_blif FSMD.blif");
+    // $fdisplay(tbf, "read_blif FSMD.blif");
     
     clock = 1'b0; 
 	INIZIA = 1'b0;
-    $display("> Inizio lo script!");
-
     
     #20
-    $display("> Giro di clk vuoto!");
     
     INIZIA = 1'b1;
    	PRIMO <= 2'b00;
     SECONDO <= 2'b10;
-	  #20
-    $display("> Resetto i registri -> imposto poi INIZIA a 0\n");
+	$fdisplay(outf, "Outputs: %b %b %b %b", MANCHE[1], MANCHE[0], PARTITA[1], PARTITA[0]);
+    
+    #20
     
     INIZIA = 1'b0;
-    
-    PRIMO = 2'b01;
-    SECONDO = 2'b11; 
+    PRIMO <= 2 'b01;
+    SECONDO <= 2 'b01; 
     #20
-    $display("> Game: Primo: %b, Secondo: %b -> %b, PARTITA: %b\n", PRIMO, SECONDO, MANCHE, PARTITA);
+    $fdisplay(outf, "Outputs: %b %b %b %b", MANCHE[1], MANCHE[0], PARTITA[1], PARTITA[0]);
     
-    PRIMO = 2'b11;
-    SECONDO = 2'b11; 
+    PRIMO <= 2 'b11;
+    SECONDO <= 2 'b10; 
     #20
-    $display("> Game: Primo: %b, Secondo: %b -> %b, PARTITA: %b\n", PRIMO, SECONDO, MANCHE, PARTITA);
+    $fdisplay(outf, "Outputs: %b %b %b %b", MANCHE[1], MANCHE[0], PARTITA[1], PARTITA[0]);
     
-    PRIMO = 2'b11;
-    SECONDO = 2'b01; 
+    PRIMO <= 2 'b01;
+    SECONDO <= 2 'b10; 
     #20
-    $display("> Game: Primo: %b, Secondo: %b -> %b, PARTITA: %b\n", PRIMO, SECONDO, MANCHE, PARTITA);
+    $fdisplay(outf, "Outputs: %b %b %b %b", MANCHE[1], MANCHE[0], PARTITA[1], PARTITA[0]);
     
-    INIZIA = 1'b1;
-    
-    PRIMO = 2'b11;
-    SECONDO = 2'b10; 
+    PRIMO <= 2 'b11;
+    SECONDO <= 2 'b10; 
     #20
-    $display("> Game: Primo: %b, Secondo: %b -> %b, PARTITA: %b\n", PRIMO, SECONDO, MANCHE, PARTITA);
+    $fdisplay(outf, "Outputs: %b %b %b %b", MANCHE[1], MANCHE[0], PARTITA[1], PARTITA[0]);
     
-    INIZIA = 1'b0;
+    PRIMO <= 2 'b00;
+    SECONDO <= 2 'b00; 
+    #20
+    $fdisplay(outf, "Outputs: %b %b %b %b", MANCHE[1], MANCHE[0], PARTITA[1], PARTITA[0]);
     
-    PRIMO = 2'b11;
-    SECONDO = 2'b11; 
+    PRIMO <= 2 'b11;
+    SECONDO <= 2 'b01; 
     #20
-    $display("> Game: Primo: %b, Secondo: %b -> %b, PARTITA: %b\n", PRIMO, SECONDO, MANCHE, PARTITA);
-
-    PRIMO = 2'b11;
-    SECONDO = 2'b11; 
-    #20
-    $display("> Game: Primo: %b, Secondo: %b -> %b, PARTITA: %b\n", PRIMO, SECONDO, MANCHE, PARTITA);
+    $fdisplay(outf, "Outputs: %b %b %b %b", MANCHE[1], MANCHE[0], PARTITA[1], PARTITA[0]);
     
-    PRIMO = 2'b01;
-    SECONDO = 2'b10; 
+    PRIMO <= 2 'b11;
+    SECONDO <= 2 'b01; 
     #20
-    $display("> Game: Primo: %b, Secondo: %b -> %b, PARTITA: %b\n", PRIMO, SECONDO, MANCHE, PARTITA);
+    $fdisplay(outf, "Outputs: %b %b %b %b", MANCHE[1], MANCHE[0], PARTITA[1], PARTITA[0]);
     
-    PRIMO = 2'b11;
-    SECONDO = 2'b10; 
+    PRIMO <= 2 'b10;
+    SECONDO <= 2 'b01; 
     #20
-    $display("> Game: Primo: %b, Secondo: %b -> %b, PARTITA: %b\n", PRIMO, SECONDO, MANCHE, PARTITA);
+    $fdisplay(outf, "Outputs: %b %b %b %b", MANCHE[1], MANCHE[0], PARTITA[1], PARTITA[0]);
     
-    PRIMO = 2'b01;
-    SECONDO = 2'b11; 
-    #20
-    $display("> Game: Primo: %b, Secondo: %b -> %b, PARTITA: %b\n", PRIMO, SECONDO, MANCHE, PARTITA);
-    
-    PRIMO = 2'b11;
-    SECONDO = 2'b01; 
-    #20
-    $display("> Game: Primo: %b, Secondo: %b -> %b, PARTITA: %b\n", PRIMO, SECONDO, MANCHE, PARTITA);
-    
-    PRIMO = 2'b11;
-    SECONDO = 2'b11; 
-    #20
-    $display("> Game: Primo: %b, Secondo: %b -> %b, PARTITA: %b\n", PRIMO, SECONDO, MANCHE, PARTITA);
     
     $display(tbf, "quit");
     $fclose(tbf);
