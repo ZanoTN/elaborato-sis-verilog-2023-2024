@@ -12,6 +12,6 @@
 --1-001- 1
 ---10001 1
 
-.search  xor.blif
+.search xor.blif
 
 .end

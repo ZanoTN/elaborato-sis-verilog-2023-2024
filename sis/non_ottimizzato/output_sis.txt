@@ -1,9 +1,11 @@
-Outputs: 0 0 0 0 1
+]633;E;printf "\\n\\n";82857801-3032-46b7-bc10-406f5a0cdb6b]633;C
+
+Outputs: 0 0 0 0 0
 Outputs: 1 1 0 0 0
 Outputs: 0 1 0 0 0
 Outputs: 1 0 0 0 0
 Outputs: 1 0 0 0 0
 Outputs: 0 0 0 0 0
 Outputs: 1 1 0 0 0
-Outputs: 0 0 0 0 1
-Outputs: 0 1 0 1 0
+Outputs: 1 0 1 0 0
+Outputs: 0 0 0 0 0

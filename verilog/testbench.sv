@@ -52,7 +52,7 @@ module tb();
     $fdisplay(outf, "Outputs: %b %b %b %b", MANCHE[1], MANCHE[0], PARTITA[1], PARTITA[0]);
     
     PRIMO <= 2 'b11;
-    SECONDO <= 2 'b10; 
+    SECONDO <= 2 'b01; 
     #20
     $fdisplay(outf, "Outputs: %b %b %b %b", MANCHE[1], MANCHE[0], PARTITA[1], PARTITA[0]);
     
@@ -61,13 +61,13 @@ module tb();
     #20
     $fdisplay(outf, "Outputs: %b %b %b %b", MANCHE[1], MANCHE[0], PARTITA[1], PARTITA[0]);
     
-    PRIMO <= 2 'b11;
+    PRIMO <= 2 'b01;
     SECONDO <= 2 'b01; 
     #20
     $fdisplay(outf, "Outputs: %b %b %b %b", MANCHE[1], MANCHE[0], PARTITA[1], PARTITA[0]);
     
-    PRIMO <= 2 'b11;
-    SECONDO <= 2 'b01; 
+    PRIMO <= 2 'b01;
+    SECONDO <= 2 'b10; 
     #20
     $fdisplay(outf, "Outputs: %b %b %b %b", MANCHE[1], MANCHE[0], PARTITA[1], PARTITA[0]);
     

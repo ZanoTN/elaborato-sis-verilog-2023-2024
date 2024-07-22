@@ -1,5 +1,4 @@
 read_blif morra_cinese.blif
-
 # Test 1: Configurazione iniziale (6 manche massime)
 sim 1 0 0 1 0     # SETUP
 sim 0 0 1 0 1     # SASSO vs SASSO        Match: 0 - 0      Punteggio: 0 - 0      Turno: 1
